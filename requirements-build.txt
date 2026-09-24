@@ -1,0 +1,3 @@
+# Build-only dependency. The application uses the Python standard library.
+# Build on Windows x64 with the python.org Python 3.12 distribution (Tcl/Tk).
+PyInstaller==6.22.3

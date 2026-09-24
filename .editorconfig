@@ -1,0 +1,28 @@
+# https://editorconfig.org
+# 让不同编辑器（VS Code / PyCharm / Sublime / Vim）在编码和换行上保持一致。
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# Markdown 里行尾两个空格是「硬换行」，删掉会改变渲染结果
+[*.md]
+trim_trailing_whitespace = false
+
+# 本项目所有文本文件（含 .bat）统一用 LF，已在 Windows 10/11 实测正常，
+# 不单独改成 CRLF —— 全仓库一致比"某类文件按传统来"更重要。
+[*.{bat,cmd}]
+end_of_line = lf
+
+[*.{json,yml,yaml}]
+indent_size = 2
+
+# 二进制资源不要动
+[*.{ico,png}]
+insert_final_newline = false
+trim_trailing_whitespace = false

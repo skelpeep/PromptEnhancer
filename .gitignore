@@ -1,0 +1,72 @@
+# ─────────────────────────────────────────────────────────────
+# Prompt Enhancer — 不应进入版本库的文件
+# ─────────────────────────────────────────────────────────────
+
+# ── Python 字节码缓存（编译时自动重建）───────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ── 打包产物 ────────────────────────────────────────────────
+# exe 与发行 zip 都属于「发布附件」，请走 GitHub Releases 分发，不要提交进仓库：
+#   https://docs.github.com/en/repositories/releasing-projects-on-github
+build/
+dist/
+release/
+*.spec
+
+# ── 本地配置（可能含 API Key，绝不提交）──────────────────────
+config.env
+.env
+.env.*
+!.env.example
+!config.env.example
+
+# ── 运行产物 / 日志（可能含你增强过的文本片段）───────────────
+*.log
+enhancer.log
+instance.json
+
+# ── 测试与诊断的临时截图 ────────────────────────────────────
+# 注意：docs/ui-*.png 是文档配图，要保留，所以不用 *.png 通配
+shot_*.png
+*_render.png
+*_probe.png
+
+# ── 编辑器 / 系统 ───────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── 其它 ────────────────────────────────────────────────────
+*.tmp
+*.bak
+*.orig
+
+# Virtual environments and local tool state
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.codex/
+.agents/
+
+# Diagnostic captures and user data must not enter source archives
+tools/dev/out/
+settings.json
+history.json
+settings.json.*
+history.json.*
+*.pem
+*.key

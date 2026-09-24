@@ -1,0 +1,20 @@
+# 本项目运行时「零第三方依赖」—— 全部基于 Python 标准库（含 Windows 自带的 tkinter）。
+#
+# 所以这里没有任何需要安装的包，`pip install -r requirements.txt` 会直接成功并什么都不装。
+# 保留这个文件，是为了让「检查依赖」的常规流程和工具链能正常工作：
+# pip / GitHub 依赖图 / Dependabot / 各种 CI 的依赖缓存步骤。
+
+# ── 运行环境要求 ────────────────────────────────────────────────
+#   * Windows 10 / 11
+#     底层直接用 Win32 API：RegisterHotKey（全局热键）、SendInput/keybd_event（按键注入）、
+#     DPAPI（加密保存 API Key）、GDI（自绘浮层），这几个都是 Windows 独有的。
+#   * Python 3.10 或更高（开发与验证用的是 3.12）
+#     桌面版需要 tkinter：官方 python.org 安装包自带；某些精简版或嵌入式发行版不含，
+#     那种情况下只能用无界面的 hotkey.py。
+#
+# ── 仅打包 exe 时才需要（不属于运行时依赖）──────────────────────
+#   pip install pyinstaller
+#
+# ── 想验证「真的零依赖」────────────────────────────────────────
+#   python hotkey.py --selftest          # 注册热键 + 剪贴板往返
+#   python cli.py "帮我写个爬虫"           # 走通一次真实调用
